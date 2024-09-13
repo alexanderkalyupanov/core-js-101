@@ -35,7 +35,7 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(len) {
+function generateOdds() {
   throw new Error('Not implemented');
 }
 
@@ -52,8 +52,9 @@ function generateOdds(len) {
  *    [0, 1, 2, 3, 4, 5] => [0, 1, 2, 3, 4, 5,   0, 1, 2, 3, 4, 5]
  *    [] => []
  */
-function doubleArray(/* arr */) {
-  throw new Error('Not implemented');
+function doubleArray(arr) {
+  const duplicateArr = arr.reduce((res, current) => res.concat(current, current), []);
+  return duplicateArr;
 }
 
 
@@ -68,9 +69,17 @@ function doubleArray(/* arr */) {
  *    [-1, 2, -5, -4, 0] => [ 2 ]
  *    [] => []
  */
-function getArrayOfPositives(/* arr */) {
-  throw new Error('Not implemented');
+function getArrayOfPositives(arr) {
+  const mas = [];
+  arr.filter((value) => {
+    if (value > 0) {
+      mas.push(value);
+    }
+    return value;
+  });
+  return mas;
 }
+
 
 /**
  * Returns the array with strings only in the specified array (in original order)
@@ -83,8 +92,12 @@ function getArrayOfPositives(/* arr */) {
  *    [ 1, 2, 3, 4, 5 ] => []
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
-function getArrayOfStrings(/* arr */) {
-  throw new Error('Not implemented');
+function getArrayOfStrings(arr) {
+  const mas = [];
+  arr.reduce((res, item, []) => {
+    if (typeof(item) == "string") {res.push(item)}
+  });
+  return mas;
 }
 
 /**
