@@ -53,7 +53,8 @@ function generateOdds() {
  *    [] => []
  */
 function doubleArray(arr) {
-  const duplicateArr = arr.reduce((res, current) => res.concat(current, current), []);
+  const newArr = [arr];
+  const duplicateArr = arr.concat(...newArr);
   return duplicateArr;
 }
 
@@ -93,15 +94,13 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
 function getArrayOfStrings(arr) {
-  const mas = [];
-  arr.reduce((res, item) => {
-    if (typeof (item) === 'string') { res.push(item); }
-    return res;
+  return arr.reduce((accumulator, current) => {
+    if (typeof current === 'string') {
+      accumulator.push(current);
+    }
+    return accumulator;
   }, []);
-  return mas;
 }
-
-
 /**
  * Removes falsy values from the specified array
  * Falsy values: false, null, 0, "", undefined, and NaN.
@@ -179,10 +178,9 @@ function insertItem(arr, item, index) {
  *    [ 1, 3, 4, 5 ], 2 => [ 1, 3 ]
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
-function getHead(/* arr, n */) {
-  throw new Error('Not implemented');
+function getHead(arr, n) {
+  return arr.slice(0, n);
 }
-
 
 /**
  * Returns the n last items of the specified array
