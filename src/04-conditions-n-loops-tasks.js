@@ -209,8 +209,12 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let newStr = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    newStr += str[i];
+  }
+  return newStr;
 }
 
 
@@ -265,7 +269,7 @@ function isCreditCardNumber(/* ccn */) {
  *   step1 : find sum of all digits
  *   step2 : if sum > 9 then goto step1 otherwise return the sum
  *
- * @param {number} n
+ * @param {number} num
  * @return {number}
  *
  * @example:
@@ -274,10 +278,23 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
-}
+function getDigitalRoot(num) {
+  const Num = num.toString();
+  let result = 0;
+  for (let i = 0; i < Num.length; i++) {
+    result += +Num[i];
+  }
 
+  if (result > 9) {
+    result = String(result);
+    let newResult = 0;
+    for (let i = 0; i < result.length; i++) {
+      newResult += +result[i];
+    }
+    return newResult;
+  }
+  return result;
+}
 
 /**
  * Returns true if the specified string has the balanced brackets and false otherwise.
