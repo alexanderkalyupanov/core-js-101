@@ -53,8 +53,9 @@ function getCircleCircumference(radius) {
  */
 
 function getAverage(value1, value2) {
-  return (Math.round(value1) + Math.round(value2)) / 2;
+  return (value1 / 2) + (value2 / 2);
 }
+
 
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -209,10 +210,14 @@ function roundToPowerOfTen(/* num, pow */) {
  */
 
 function isPrime(n) {
-  for (let i = 3, root = Math.sqrt(n); i <= root; i++) {
-    if (n % i === 0) return false;
+  let flag = true;
+  for (let i = 2; i <= n - 1; i++) {
+    if (n % i === 0) {
+      flag = false;
+      break;
+    } else flag = true;
   }
-  return true;
+  return flag;
 }
 
 /**
@@ -230,8 +235,9 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
+
 function toNumber(value, def) {
-  if (Number.isFinite(value) || Number(value) === true) {
+  if (Number(value)) {
     return value;
   }
   return def;
