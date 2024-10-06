@@ -70,7 +70,7 @@ function getFactorial(n) {
  */
 function getSumBetweenNumbers(n1, n2) {
   let sum = 0;
-  for (let i = n1; i <= n2; i++) {
+  for (let i = n1; i <= n2; i += 1) {
     sum += i;
   }
   return sum;
@@ -224,7 +224,7 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  */
 function reverseString(str) {
   let newStr = '';
-  for (let i = str.length - 1; i >= 0; i--) {
+  for (let i = str.length - 1; i >= 0; i -= 1) {
     newStr += str[i];
   }
   return newStr;
@@ -246,7 +246,7 @@ function reverseString(str) {
 function reverseInteger(num) {
   let newNum = '';
   const nums = num.toString();
-  for (let i = nums.length - 1; i >= 0; i--) {
+  for (let i = nums.length - 1; i >= 0; i -= 1) {
     newNum += nums[i];
   }
   return newNum;
@@ -294,14 +294,14 @@ function isCreditCardNumber(/* ccn */) {
 function getDigitalRoot(num) {
   const Num = num.toString();
   let result = 0;
-  for (let i = 0; i < Num.length; i++) {
+  for (let i = 0; i < Num.length; i += 1) {
     result += +Num[i];
   }
 
   if (result > 9) {
     result = String(result);
     let newResult = 0;
-    for (let i = 0; i < result.length; i++) {
+    for (let i = 0; i < result.length; i += 1) {
       newResult += +result[i];
     }
     return newResult;

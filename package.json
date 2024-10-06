@@ -16,7 +16,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-react": "^7.37.1",
     "globals": "^15.10.0",
-    "mocha": "^6.2.2"
+    "mocha": "^10.7.3"
   },
   "repository": {
     "type": "git",
