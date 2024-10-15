@@ -114,8 +114,10 @@ function getArrayOfStrings(arr) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  const falsyValue = [false, null, 0, '', undefined, NaN];
+  const newArr = arr.filter((item) => !falsyValue.includes(item));
+  return newArr;
 }
 
 /**
@@ -267,10 +269,11 @@ function getMovingSum(/* arr */) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-function getSecondItems(/* arr */) {
-  throw new Error('Not implemented');
-}
 
+function getSecondItems(arr) {
+  const newArr = arr.filter((item, index) => index % 2 !== 0);
+  return newArr;
+}
 
 /**
  * Propagates every item in sequence its position times
