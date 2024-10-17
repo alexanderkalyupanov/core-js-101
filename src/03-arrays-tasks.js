@@ -14,7 +14,7 @@
  * @param {array} arr
  * @param {any} value
  * @return {number}
- *
+
  * @example
  *    ['Ace', 10, true], 10    => 1
  *    ['Array', 'Number', 'string'], 'Date'    => -1
@@ -219,6 +219,7 @@ function getTail(arr, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
+
 function toCsvText(/* arr */) {
   throw new Error('Not implemented');
 }
@@ -383,8 +384,16 @@ function getItemsSum(arr) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  const falsyValue = ['', false, null, NaN, undefined, 0];
+  const numSum = arr.reduce((acc, current) => {
+    let sum = acc;
+    if (falsyValue.includes(current)) {
+      sum += 1;
+    }
+    return sum;
+  }, 0);
+  return numSum;
 }
 
 /**
@@ -401,8 +410,9 @@ function getFalsyValuesCount(/* arr */) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  const numSum = arr.filter((el) => el === item);
+  return numSum.length;
 }
 
 /**
@@ -416,10 +426,10 @@ function findAllOccurrences(/* arr, item */) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  const string = arr.join(',');
+  return string;
 }
-
 
 /**
  * Sorts the specified array by country name first and city name
